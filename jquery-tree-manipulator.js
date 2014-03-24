@@ -22,21 +22,25 @@
     }
 
     // depth-first search of the tree, based on the selector structure
-    Plugin.prototype.descend = function($elem, action, limit, depth) {
+    Plugin.prototype.descend = function(action, limit, $elem, depth) {
 
+        // default parameters
+        if (!limit) limit = that.options.depth;
         if (!depth) depth = 0;
+        if (!$elem) $elem = this.$elem;
 
-        var that = this;
-
+        // invoke the action before traversing
         if (typeof action === "function") action($elem, depth);
+
         var $children = $elem.find(this.options.structure);
 
         // if there's children, perform the action, then recurse
         if ($children.length > 0) {
             depth++;
-            if (depth > that.options.depth || depth > limit) return;
+            if (depth > limit) return;
+            var that = this;
             $children.each(function() {
-                that.descend($(this), depth, action, limit);
+                that.descend(action, limit, $(this), depth);
             });
         } else {
             depth--;
@@ -44,22 +48,19 @@
     }
 
     Plugin.prototype.discover = function() {
-        var that = this;
-        this.descend(this.$elem, function($elem, depth) {
+        this.descend(function($elem, depth) {
             if (that.depth < depth) that.depth = depth;
         });
     }
 
     Plugin.prototype.open = function(limit) {
-        var that = this;
-        this.descend(this.$elem, function($elem, depth) {
+        this.descend(function($elem, depth) {
             $elem.children(that.options.closed).click();
         }, limit);
     }
 
     Plugin.prototype.close = function(limit) {
-        var that = this;
-        this.descend(this.$elem, function($elem, depth) {
+        this.descend(function($elem, depth) {
             $elem.children(that.options.opened).click();
         }, limit);
     }

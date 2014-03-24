@@ -1,0 +1,26 @@
+{
+  "name": "jquery-tree-manipulator",
+  "main": "jquery-tree-manipulator.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/weisjohn/jquery-tree-manipulator",
+  "authors": [
+    "John Weis <weis.john@gmail.com>"
+  ],
+  "description": "a depth-first walker for manipulating an arbitrary DOM tree",
+  "keywords": [
+    "depth-first",
+    "tree-traversal",
+    "jquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.0"
+  }
+}
