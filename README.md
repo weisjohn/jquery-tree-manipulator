@@ -22,6 +22,10 @@ a depth-first walker for manipulating an arbitrary DOM tree
                 <li>bat</li>
                 <li>baz</li>
                 <li>bin</li>
+                <span class="collapser">-</span>
+                <ul>
+                    <li>cat</li>
+                </ul>
             </ul>
         </li>
     </ul>
@@ -39,3 +43,12 @@ $(".tree").treeManipulator({
 ```
 
 `jquery-tree-manipulator` requires you tell it how to traverse your tree. You must provide three selectors for it to know how to traverse, open, and close the DOM nodes.
+
+You can then invoke the `close` and `open` methods on the plugin, optionally passing a `depth` limit as an argument, such as:
+
+```javascript
+// close all nodes
+$(".tree").treeManipulator('close');
+// open the first level
+$(".tree").treeManipulator('open', 1);
+```
