@@ -1,2 +1,3 @@
-tree-controls
+jquery-tree-manipulator
 =============
+
