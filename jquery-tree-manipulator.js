@@ -26,8 +26,8 @@
 
         // default parameters
         if (!limit) limit = that.options.depth;
-        if (!depth) depth = 0;
         if (!$elem) $elem = this.$elem;
+        if (!depth) depth = 0;
 
         // invoke the action before traversing
         if (typeof action === "function") action($elem, depth);

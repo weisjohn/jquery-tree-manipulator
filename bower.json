@@ -1,7 +1,7 @@
 {
   "name": "jquery-tree-manipulator",
   "main": "jquery-tree-manipulator.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/weisjohn/jquery-tree-manipulator",
   "authors": [
     "John Weis <weis.john@gmail.com>"
@@ -21,6 +21,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.0.0"
+    "jquery": ">=1.4.3"
   }
 }
