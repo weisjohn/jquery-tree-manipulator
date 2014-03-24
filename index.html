@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>jquery-tree-manipulator by weisjohn</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github.css">
+    <link rel="stylesheet" href="stylesheets/jquery.jsonview.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.jsonview.js"></script>
+    <script type="text/javascript" src="javascripts/npm-shrinkwrap.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-tree-manipulator.js"></script>
+    <script type="text/javascript">
+
+        $(function() {
+
+            $(".tree").JSONView(shrink);
+
+            $("#jsonview").treeManipulator({
+                structure: "> ul > li",
+                opened: ".collapser:contains('-')",
+                closed: ".collapser:contains('+')"
+            });
+
+            $(".controls a").click(function(e) {
+                e.preventDefault();
+                var depth = $(this).data('depth');
+                $("#jsonview").treeManipulator('close', depth + 1)
+                $("#jsonview").treeManipulator('open', depth);
+            });
+        });
+
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>jquery-tree-manipulator</h1>
+        <p>a depth-first walker for manipulating an arbitrary DOM tree</p>
+
+        <p class="view"><a href="https://github.com/weisjohn/jquery-tree-manipulator">View the Project on GitHub <small>weisjohn/jquery-tree-manipulator</small></a></p>
+
+        <p class="view">
+          <a href="adaptive-backgrounds-demo.html"> adaptive-backgrounds demo</a>
+        </p>
+
+        <ul>
+          <li><a href="https://github.com/weisjohn/jquery-tree-manipulator/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/weisjohn/jquery-tree-manipulator/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/weisjohn/jquery-tree-manipulator">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+
+        <h3>
+        <a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>install:</h3>
+
+        <p><code>bower install jquery-tree-manipulator</code> or download the <a href="https://raw2.github.com/weisjohn/jquery-tree-manipulator/master/jquery-tree-manipulator.js">jquery-tree-manipulator.js</a> file </p>
+
+        <p>jquery-tree-manipulator works with jQuery >= 1.4.3.</p>
+
+
+        <h3>
+        <a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>example:</h3>
+
+<pre class="highlight highlight-javascript"><code>$(function() { 
+    $(".tree").treeManipulator({
+        structure: "> ul > li",
+        opened: ".collapser:contains('-')",
+        closed: ".collapser:contains('+')"
+    });
+});
+</code></pre>
+
+        After visualizing the results of running <code>npm shrinkwrap</code> on a <a href="https://www.npmjs.org/package/kamino" target="_blank">repo</a> with something like <a href="https://github.com/yesmeck/jquery-jsonview" target="_blank">jQuery-JSONView</a>, we can wire-up some buttons to toggle the visible depth of the structure.
+
+        <div class="controls">
+          <a href="#" data-depth="1">1</a>
+          <a href="#" data-depth="2">2</a>
+          <a href="#" data-depth="3">3</a>
+          <a href="#" data-depth="4">4</a>
+        </div>
+        
+        <div class="tree"></div>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/weisjohn">weisjohn</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-2950667-4");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>

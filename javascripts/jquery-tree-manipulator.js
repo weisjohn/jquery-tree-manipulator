@@ -25,7 +25,7 @@
     Plugin.prototype.descend = function(action, limit, $elem, depth) {
 
         // default parameters
-        if (!limit) limit = that.options.depth;
+        if (!limit) limit = this.options.depth;
         if (!$elem) $elem = this.$elem;
         if (!depth) depth = 0;
 
@@ -48,18 +48,21 @@
     }
 
     Plugin.prototype.discover = function() {
+        var that = this;
         this.descend(function($elem, depth) {
             if (that.depth < depth) that.depth = depth;
         });
     }
 
     Plugin.prototype.open = function(limit) {
+        var that = this;
         this.descend(function($elem, depth) {
             $elem.children(that.options.closed).click();
         }, limit);
     }
 
     Plugin.prototype.close = function(limit) {
+        var that = this;
         this.descend(function($elem, depth) {
             $elem.children(that.options.opened).click();
         }, limit);
