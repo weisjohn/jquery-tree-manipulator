@@ -292,6 +292,7 @@ p code {
 
 code {
   padding: 2px 4px;
+  margin: 0px 3px;
   background: #f0f0f0;
   font-size: 0.9em;
 }
