@@ -26,7 +26,6 @@
             });
 
             $(".controls a").click(function(e) {
-                e.preventDefault();
                 var depth = $(this).data('depth');
                 $("#jsonview").treeManipulator('close', depth + 1)
                 $("#jsonview").treeManipulator('open', depth);
@@ -66,22 +65,31 @@
         <h3>
         <a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>example:</h3>
 
+        <p>
+          After visualizing the results of running <code>npm shrinkwrap</code> on a <a href="https://www.npmjs.org/package/kamino" target="_blank">repo</a> with something like <a href="https://github.com/yesmeck/jquery-jsonview" target="_blank">jQuery-JSONView</a>, we can wire-up the tree-manipulator and some buttons to toggle the visible depth of the structure:
+        </p>
+
 <pre class="highlight highlight-javascript"><code>$(function() { 
     $(".tree").treeManipulator({
         structure: "> ul > li",
         opened: ".collapser:contains('-')",
         closed: ".collapser:contains('+')"
     });
+
+    $(".controls a").click(function(e) {
+        var depth = $(this).data('depth');
+        $("#jsonview").treeManipulator('close', depth + 1)
+        $("#jsonview").treeManipulator('open', depth);
+    });
 });
 </code></pre>
 
-        After visualizing the results of running <code>npm shrinkwrap</code> on a <a href="https://www.npmjs.org/package/kamino" target="_blank">repo</a> with something like <a href="https://github.com/yesmeck/jquery-jsonview" target="_blank">jQuery-JSONView</a>, we can wire-up some buttons to toggle the visible depth of the structure.
-
+        <a name="tree"></a>
         <div class="controls">
-          <a href="#" data-depth="1">1</a>
-          <a href="#" data-depth="2">2</a>
-          <a href="#" data-depth="3">3</a>
-          <a href="#" data-depth="4">4</a>
+          <a href="#tree" data-depth="1">1</a>
+          <a href="#tree" data-depth="2">2</a>
+          <a href="#tree" data-depth="3">3</a>
+          <a href="#tree" data-depth="4">4</a>
         </div>
         
         <div class="tree"></div>
