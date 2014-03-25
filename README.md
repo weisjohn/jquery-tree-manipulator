@@ -5,6 +5,8 @@ a depth-first walker for manipulating an arbitrary DOM tree
 
 `jquery-tree-manipulator` was born out of a need to integrate with http://blog.yesmeck.com/jquery-jsonview/ without rebuilding the whole thing.
 
+[Demo](http://weisjohn.github.io/jquery-tree-manipulator/)
+
 ### usage
 
 `sample.html`:
